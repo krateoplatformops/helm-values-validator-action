@@ -22,8 +22,12 @@ Stop the action in case of error. Default `"true"`.
 uses: krateoplatformops/helm-values-validator-action@v1.0.2
 ```
 
+or with params:
+
 ```yaml
 uses: krateoplatformops/helm-values-validator-action@v1.0.2
 with:
   chart-folder: './chart'
+  stop-if-find-orphans: true
+  stop-on-error: true
 ```
