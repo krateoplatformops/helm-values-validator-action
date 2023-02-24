@@ -1,0 +1,18 @@
+name: "Helm Values Validator"
+description: "Check if there is any orphaned values in the Helm Chart"
+inputs:
+  chart-folder:
+    description: "The folder of the Helm Chart"
+    required: false
+    default: "./chart"
+  stop-if-find-orphans:
+    description: "Stop the workflow when orphaned values are found"
+    required: false
+    default: "true"
+  stop-on-error:
+    description: "Stop the workflow when an error is found"
+    required: false
+    default: "true"
+runs:
+  using: "node16"
+  main: "index.js"
