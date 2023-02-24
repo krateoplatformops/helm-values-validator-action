@@ -11,7 +11,7 @@ const ORPHANS_FOUND = 'Some orphans found'
 
 try {
   const chartFolder = core.getInput('chart-folder')
-  const stopIfOrphans = core.getInput('stop-if-find-orphans') === 'true'
+  const stopIfFindOrphans = core.getInput('stop-if-find-orphans') === 'true'
   const stopOnErrors = core.getInput('stop-on-error') === 'true'
 
   // Check if the folder exists
