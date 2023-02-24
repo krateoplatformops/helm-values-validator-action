@@ -19,13 +19,13 @@ Stop the action in case of error. Default `"true"`.
 ## Example usage
 
 ```yaml
-uses: krateoplatformops/helm-values-validator-action@v1.0.2
+uses: krateoplatformops/helm-values-validator-action@1.0.0
 ```
 
 or with params:
 
 ```yaml
-uses: krateoplatformops/helm-values-validator-action@v1.0.2
+uses: krateoplatformops/helm-values-validator-action@1.0.0
 with:
   chart-folder: './chart'
   stop-if-find-orphans: true
