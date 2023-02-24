@@ -1,5 +1,8 @@
 name: "Helm Values Validator"
 description: "Check if there is any orphaned values in the Helm Chart"
+branding:
+  icon: box
+  color: blue
 inputs:
   chart-folder:
     description: "The folder of the Helm Chart"
