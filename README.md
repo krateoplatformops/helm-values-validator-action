@@ -19,11 +19,11 @@ Stop the action in case of error. Default `"true"`.
 ## Example usage
 
 ```yaml
-uses: krateoplatformops/helm-values-validator-action@v1.0.1
+uses: krateoplatformops/helm-values-validator-action@v1.0.2
 ```
 
 ```yaml
-uses: krateoplatformops/helm-values-validator-action@v1.0.1
+uses: krateoplatformops/helm-values-validator-action@v1.0.2
 with:
   chart-folder: './chart'
 ```
