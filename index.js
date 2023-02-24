@@ -10,13 +10,9 @@ const FOLDER_NOT_FOUND = 'The folder "%s" is not found'
 const ORPHANS_FOUND = 'Some orphans found'
 
 try {
-  // const chartFolder = core.getInput('chart-folder')
-  // const stopIfOrphans = core.getInput('stop-if-find-orphans') === 'true'
-  // const stopOnErrors = core.getInput('stop-on-error') === 'true'
-
-  const chartFolder = './chart'
-  const stopOnErrors = false
-  const stopIfFindOrphans = false
+  const chartFolder = core.getInput('chart-folder')
+  const stopIfOrphans = core.getInput('stop-if-find-orphans') === 'true'
+  const stopOnErrors = core.getInput('stop-on-error') === 'true'
 
   // Check if the folder exists
   if (!fs.existsSync(chartFolder)) {
