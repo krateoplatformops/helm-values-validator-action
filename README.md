@@ -18,7 +18,7 @@ Stop the action in case of error. Default `"true"`.
 
 ### `ignore`
 
-List of property to be ignored. Default `""`.
+List of property to be ignored. Default `""`. String of properties separated by comma.
 
 ## Example usage
 
