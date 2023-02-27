@@ -18,7 +18,7 @@ Stop the action in case of error. Default `"true"`.
 
 ### `ignore`
 
-List of property to be ignored. Default `""`. String of properties separated by comma.
+List of property to be ignored. Default `""`. String of properties separated by comma. For nested properties use dot notation.
 
 ## Example usage
 
@@ -34,5 +34,5 @@ with:
   chart-folder: './chart'
   stop-if-find-orphans: true
   stop-on-error: true
-  ignore: 'labels,annotations'
+  ignore: 'labels,metadata.annotations'
 ```
