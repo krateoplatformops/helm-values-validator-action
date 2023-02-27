@@ -16,6 +16,10 @@ inputs:
     description: "Stop the workflow when an error is found"
     required: false
     default: "true"
+  ignore:
+    description: "Ignore some properties"
+    required: false
+    default: ""
 runs:
   using: "node16"
   main: "index.js"

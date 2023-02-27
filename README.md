@@ -16,6 +16,10 @@ Stop the action if found some orphan. Default `"true"`.
 
 Stop the action in case of error. Default `"true"`.
 
+### `ignore`
+
+List of property to be ignored. Default `""`.
+
 ## Example usage
 
 ```yaml
@@ -25,9 +29,10 @@ uses: krateoplatformops/helm-values-validator-action@1.0.2
 or with params:
 
 ```yaml
-uses: krateoplatformops/helm-values-validator-action@1.0.2
+uses: krateoplatformops/helm-values-validator-action@1.0.5
 with:
   chart-folder: './chart'
   stop-if-find-orphans: true
   stop-on-error: true
+  ignore: 'labels,annotations'
 ```

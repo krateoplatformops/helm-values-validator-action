@@ -13,6 +13,7 @@ try {
   const chartFolder = core.getInput('chart-folder')
   const stopIfFindOrphans = core.getInput('stop-if-find-orphans') === 'true'
   const stopOnErrors = core.getInput('stop-on-error') === 'true'
+  const ignore = core.getInput('ignore') || ''
 
   // Check if the folder exists
   if (!fs.existsSync(chartFolder)) {
@@ -35,36 +36,25 @@ try {
 
   // Check for missing placeholders
   const orphanValues = []
-  const orphanTemplates = []
+  const ignoreList = ignore.split(',').map((x) => x.trim())
+
   values.forEach((p) => {
-    if (!placeholders[p]) {
+    if (
+      !placeholders[p] &&
+      ignoreList.filter((x) => p.startsWith(x + '.') || p === x).length === 0
+    ) {
       orphanValues.push(p)
-    }
-  })
-  // Check for missing values
-  Object.keys(placeholders).forEach((p) => {
-    if (!values.includes(p)) {
-      orphanTemplates.push(p)
     }
   })
 
   if (orphanValues.length > 0) {
-    console.log('### values.yaml ###'.bold)
+    console.log('### Unused properties ###'.bold)
     orphanValues.forEach((p) => {
-      console.log(`Unused prop: ${p}`.red)
-    })
-  }
-  if (orphanTemplates.length > 0) {
-    console.log('### templates ###'.bold)
-    orphanTemplates.forEach((p) => {
-      console.log(`Missing: ${p}`.red)
+      console.log(p.red)
     })
   }
 
-  if (
-    (orphanValues.length > 0 || orphanTemplates.length > 0) &&
-    stopIfFindOrphans
-  ) {
+  if (orphanValues.length > 0 && stopIfFindOrphans) {
     throw new Error(ORPHANS_FOUND)
   }
 } catch (error) {
